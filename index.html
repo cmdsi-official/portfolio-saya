@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nama Kamu — Penulis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #FBFAF7;
+    --ink: #1C1B19;
+    --accent: #2B4C43;
+    --muted: #8A8377;
+    --line: #DEDACF;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', serif;
+    font-size: 18px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* Header */
+  header{
+    padding: 40px 0 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .site-name{
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  nav{ display:flex; gap: 24px; }
+  nav a{
+    color: var(--muted);
+    text-decoration:none;
+    font-size: 15px;
+    font-family: 'Source Serif 4', serif;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s, color .2s;
+  }
+  nav a:hover, nav a:focus-visible{
+    color: var(--ink);
+    border-color: var(--accent);
+  }
+
+  /* Hero */
+  .hero{
+    padding: 84px 0 64px;
+  }
+  .hero h1{
+    font-size: 46px;
+    line-height: 1.18;
+    max-width: 15ch;
+  }
+  .hero h1 em{
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero p{
+    margin-top: 22px;
+    max-width: 46ch;
+    color: #4B4A45;
+    font-size: 19px;
+  }
+  .hero .cta{
+    display:inline-block;
+    margin-top: 28px;
+    color: var(--accent);
+    text-decoration: none;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2px;
+  }
+  .hero .cta:hover{ opacity: .75; }
+
+  /* Featured quote */
+  .featured{
+    padding: 8px 0 64px;
+  }
+  blockquote{
+    font-family:'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 1.4;
+    color: var(--ink);
+    border-left: 2px solid var(--accent);
+    padding-left: 26px;
+  }
+  .featured cite{
+    display:block;
+    margin-top: 16px;
+    font-style: normal;
+    font-family: 'Source Serif 4', serif;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  /* Section headers */
+  section{ padding: 56px 0; border-top: 1px solid var(--line); }
+  section h2{
+    font-size: 28px;
+    margin-bottom: 34px;
+  }
+
+  /* Writing list */
+  .piece{
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+  }
+  .piece:first-of-type{ border-top: none; padding-top:0; }
+  .piece a{
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 21px;
+    display:block;
+  }
+  .piece a:hover{ color: var(--accent); }
+  .piece .meta{
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+  .piece p{
+    margin-top: 10px;
+    color: #4B4A45;
+    font-size: 17px;
+  }
+
+  /* About */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 120px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  .avatar{
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    background: var(--line);
+    background-image: linear-gradient(160deg, #E4E0D3, #D3CDBB);
+  }
+  .about-grid p{ color: #4B4A45; }
+  .about-grid p + p{ margin-top: 14px; }
+
+  /* Contact / footer */
+  footer{
+    padding: 56px 0 80px;
+    border-top: 1px solid var(--line);
+  }
+  footer .links{
+    display:flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+  footer a{
+    color: var(--accent);
+    text-decoration:none;
+    font-size: 16px;
+    border-bottom: 1px solid transparent;
+  }
+  footer a:hover{ border-color: var(--accent); }
+  footer .copy{
+    margin-top: 40px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  @media (max-width: 560px){
+    .hero h1{ font-size: 34px; }
+    blockquote{ font-size: 22px; }
+    .about-grid{ grid-template-columns: 1fr; }
+    .avatar{ width: 84px; height: 84px; }
+    nav{ gap: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+
+  a:focus-visible, .cta:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#" class="site-name">Nama Kamu</a>
+    <nav>
+      <a href="#tulisan">Tulisan</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" style="border-top:none;">
+    <h1>Menulis untuk membuat orang <em>berhenti scrolling</em>.</h1>
+    <p>Saya menulis esai dan artikel tentang [topik yang kamu tekuni — misalnya budaya pop, teknologi, atau kehidupan sehari-hari]. Beberapa tulisan saya sudah dimuat di berbagai media.</p>
+    <a href="#tulisan" class="cta">Baca tulisan terbaru</a>
+  </section>
+
+  <section class="featured" style="border-top:none; padding-top:0;">
+    <blockquote>
+      "Kutipan singkat dari esai atau artikel favoritmu yang paling merepresentasikan gaya menulismu — ganti ini dengan baris paling kuat dari salah satu karyamu."
+      <cite>Judul Esai, Nama Media</cite>
+    </blockquote>
+  </section>
+
+  <section id="tulisan">
+    <h2>Tulisan Pilihan</h2>
+
+    <div class="piece">
+      <a href="#">Judul Esai atau Artikel Pertama</a>
+      <div class="meta">Nama Media, Maret 2025</div>
+      <p>Satu-dua kalimat ringkas tentang isi tulisan ini dan mengapa layak dibaca.</p>
+    </div>
+
+    <div class="piece">
+      <a href="#">Judul Esai atau Artikel Kedua</a>
+      <div class="meta">Blog Pribadi, Januari 2025</div>
+      <p>Satu-dua kalimat ringkas tentang isi tulisan ini dan mengapa layak dibaca.</p>
+    </div>
+
+    <div class="piece">
+      <a href="#">Judul Esai atau Artikel Ketiga</a>
+      <div class="meta">Nama Media, November 2024</div>
+      <p>Satu-dua kalimat ringkas tentang isi tulisan ini dan mengapa layak dibaca.</p>
+    </div>
+  </section>
+
+  <section id="tentang">
+    <h2>Tentang</h2>
+    <div class="about-grid">
+      <div class="avatar"></div>
+      <div>
+        <p>Ceritakan siapa kamu dalam 2-3 kalimat: latar belakang, apa yang biasa kamu tulis, dan kenapa kamu menulis tentang itu.</p>
+        <p>Bisa juga sebutkan pencapaian singkat — media tempat tulisanmu dimuat, jumlah pembaca newsletter, atau proyek menulis yang sedang berjalan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <h2>Kontak</h2>
+    <p>Terbuka untuk kolaborasi tulisan, permintaan wawancara, atau sekadar menyapa.</p>
+    <div class="links">
+      <a href="mailto:emailkamu@contoh.com">Email</a>
+      <a href="#">Twitter/X</a>
+      <a href="#">Instagram</a>
+      <a href="#">Newsletter</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap" style="border-top:none; padding-top:0;">
+    <div class="copy">© 2026 Nama Kamu. Dibuat dengan GitHub Pages.</div>
+  </div>
+</footer>
+
+</body>
+</html>
